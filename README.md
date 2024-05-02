@@ -1,47 +1,31 @@
-Nos complace informarte que hemos decidido continuar con el proceso. La próxima fase del proceso de entrevista es una prueba, que utilizaremos para estimar tu nivel de habilidad. La fecha límite para la tarea es dentro de 7 días a partir de hoy. Tu solicitud únicamente se utilizará para analizar tus habilidades como desarrollador de software y no se utilizará para ningún propósito comercial.
+# Aclaraciones
 
-Tenemos algunos requisitos técnicos:
+IMPORTANTE: La prueba técnica hasta este momento no está completa. Solamente se ingresa, valida datos y se llega hasta la pestaña donde están las cartolas, pero no se analizan todas las transacciones ni se llevan a MongoDB.
 
-- La solución debe implementarse en Python. Utilizando la librería selenium.
-- Se debe usar MongoDB para guardar la información bancaria obtenida (ver apartado de Funcionalidades a construir)
-- Tu código debe estar razonablemente documentado, excepto los bloques que sean autoexplicativos. Se recomienda el uso de docstrings.
-- Describe claramente los pasos de construcción en tu README, para que nuestros desarrolladores puedan revisarlo sin problemas. Agregando además los pasos de ejecución de forma detallada 
+El proyecto venía inicialmente con algunos comandos que son para Linux, es por eso que en algunas partes se agregaron y modificaron pequeños detalles (driver_factory.py, multi_scrape.py, scraper_base.py). Pero todo el contenido relevante de la solución de puede encontrar en app/main.py
 
-Funcionalidades a construir:
+Por lo dicho anteriormente, el código está hecho para Windows.
 
-Se requiere programar un scraper (técnica utilizada mediante programas de software para extraer información de sitios web) para hacer login en un banco de tu preferencia (validando las credenciales, validando que exista la cuenta bancaria)  y para extraer los movimientos de su cuenta.
+Para que se pudiera utilizar chrome, se debío instalar un driver, el cual se encuentra en webdriver/chromedriver.exe
 
-Para ejecutar el proyecto usaremos el archivo multi_scrape donde los parámetros de entrada serán:
+Se asume que en el computador en el que se ejecute este programa está una versión de:
 
-- date_range: Periodo en el que buscaremos los movimientos (since y until)
-- username y password: usuario y contraseña del usuario del banco
-- account: numero de cuenta a consultar
- Porsupuesto cuando subas tu solución estos parametros dejalos vacios, no queremos tus datos bancarios :)
+- Python 3.X
+- Selenium
+- Pyvirtualdisplay
+- Selenium-stealth
 
-1) Login:
-El Scraper debe ser capaz de hacer login dentro de alguna de las plataformas bancarias (https://banco.santander.cl/personas, https://portales.bancochile.cl/personas/ u otro), validando que las credenciales ingresadas sean las correctas, en caso contrario no continuar con el flujo siguiente de extracción de movimientos bancarios
+Los cuales fueron los requerimientos de las carpetas en sí para que no existieran errores de importación.
 
-2) Extracción de movimientos bancarios
-El scraper debe ser capaz de, según el date_range ingresado, de la fecha que se desean los movimientos bancarios,  los datos del usuario y su cuenta (username, password, account). Extraer sus movimientos de la cartola diaria con datos que consideramos importantes como fecha, monto, descripción del movimiento (Estos datos deben ser almacenados en una collection de mongo)
+# Ejecución
 
-Nota:
-En la carpeta webdriver scraper_base conseguiras varias funciones que te ayudaran a realizar tu desarrollo usa todas las que necesites.
+IMPORTANTE: Se buscarán los datos del Banco de Chile.
 
-Estamos deseando ver los resultados. Si tienes alguna pregunta, no dudes en enviarnos un mensaje.
+Para ejecutar el programa, se deben agregar los valores en multi_scrape.py:
 
-¡Buena suerte!
+- Fechas, en formato: "DD/MM/AAAA"
+- Usuario, siendo el rut, sin puntos ni guión
+- Constraseña
+- Cuenta, teniendo esta el siguiente formato: "11-111-1111-11", es decir, con guiones y con todos los dígitos.
 
-
-# Comentarios personales
-
-pip install selenium
-
-pip install pyvirtualdisplay
-
-py -m pip install pyvirtualdisplay
-
-py -m pip install selenium-stealth
-
-cambio de directorio en driver_factory
-
-instalar mongo
+Y luego, ejecutar multi_scrape.py

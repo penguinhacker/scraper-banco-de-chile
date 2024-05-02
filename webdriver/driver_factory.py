@@ -85,13 +85,13 @@ class DriverFactory:
                 "profile.default_content_setting_values.automatic_downloads": 1,
             }
 
-        
-        # Obtiene la ruta absoluta del directorio actual
+        # Se obtiene la ruta absoluta del directorio actual.
         current_directory = os.path.dirname(os.path.abspath(__file__))
-        # Concatena la ruta del archivo chromedriver.exe al directorio actual
+        # Se concatena el ejecutable para obtener el directorio total.
         chrome_driver_path = os.path.join(current_directory, 'chromedriver.exe')
-        #service = Service(executable_path=r'/opt/drivers/chromedriver')
+        # Se genera el servicio.
         service = Service(executable_path=chrome_driver_path)
+
         if not options:
             options = webdriver.ChromeOptions()
             options.add_argument('--disable-gpu')

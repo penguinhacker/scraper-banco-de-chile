@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Agregar el directorio actual al sys.path
+# Se configura el proyecto para que se puedan acceder a las diferentes carpetas y métodos.
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
@@ -9,7 +9,7 @@ sys.path.insert(0, parent_dir)
 
 from app.main import handle
 
-# Rellena aquí tus datos para ejecutar el código
+# Acá es donde se deben ingresar los elementos.
 
 DATA = {
     "date_range": {

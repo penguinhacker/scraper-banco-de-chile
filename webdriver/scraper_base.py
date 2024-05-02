@@ -25,9 +25,9 @@ class ScraperBase():
                    ):
         
 
-        #BORRADO
-        #if os.getenv('ENV') != 'development' and not bool(os.getenv('HEADLESS')):
-        #    self._gui()
+        # Elemento borrado debido a que esto es necesario para Linux, no Windows.
+        # if os.getenv('ENV') != 'development' and not bool(os.getenv('HEADLESS')):
+        #     self._gui()
         
         self.driver = DriverFactory().get_driver(browser=browser,
                                                  options=options,
